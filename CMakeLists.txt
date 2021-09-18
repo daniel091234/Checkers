@@ -4,10 +4,7 @@ project(Checkers VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-set(SOURCES
-    src/main.cpp
-    src/Game.cpp
-)
+file(GLOB SOURCES "src/*.cpp")
 
 add_executable(Checkers ${SOURCES})
 
