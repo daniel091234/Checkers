@@ -1,7 +1,7 @@
 #include <iostream>
 
-int main()
-{
-    std::cout << "I love you Athena" << std::endl;
-    return 0;
+int main(int, char**) {
+    int x = 1 + 3;
+    int y = x++;
+    std::cout << "Hello, world!\n";
 }
