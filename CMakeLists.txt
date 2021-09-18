@@ -11,6 +11,7 @@ add_executable(Checkers ${SOURCES})
 target_include_directories(Checkers
     PRIVATE 
         ${PROJECT_SOURCE_DIR}/header
+        ${PROJECT_SOURCE_DIR}/header/interface
 )
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})

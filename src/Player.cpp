@@ -1,13 +1,13 @@
 #include <iostream>
 
-#include "Game.hpp"
+#include "Player.hpp"
 
-Game::Game(/* args */)
+Player::Player(/* args */)
 {
     std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
-Game::~Game()
+Player::~Player()
 {
     std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
