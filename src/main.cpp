@@ -1,7 +1,9 @@
 #include <iostream>
 
+#include "Game.hpp"
+
 int main(int, char**) {
-    int x = 1 + 3;
-    int y = x++;
+
     std::cout << "Hello, world!\n";
+    Game game;
 }
