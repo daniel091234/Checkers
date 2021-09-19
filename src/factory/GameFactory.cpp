@@ -6,6 +6,9 @@
 #include "Board.hpp"
 #include "Piece.hpp"
 
+constexpr size_t BOARD_SIZE = 8u;
+constexpr size_t NUM_OF_PLAYERS = 2u;
+
 Game GameFactory::GetGame()
 {
     return Game(GetPlayers(), GetBoard(), GetPieces());
@@ -13,7 +16,6 @@ Game GameFactory::GetGame()
 
 std::vector<std::shared_ptr<IPlayer>> GameFactory::GetPlayers()
 {
-    constexpr auto NUM_OF_PLAYERS = 2u;
     std::vector<std::shared_ptr<IPlayer>> players;
 
     for (auto x = 0u; x < NUM_OF_PLAYERS; x++)
@@ -26,7 +28,7 @@ std::vector<std::shared_ptr<IPlayer>> GameFactory::GetPlayers()
 
 std::shared_ptr<IBoard> GameFactory::GetBoard()
 {
-    return std::make_shared<Board>();
+    return std::make_shared<Board>(BOARD_SIZE);
 }
 
 std::vector<std::shared_ptr<IPiece>> GameFactory::GetPieces()
