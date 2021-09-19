@@ -9,7 +9,7 @@ class Player : public IPlayer
 public:
     Player(const std::string&);
     ~Player() = default;
-    std::string GetName();
+    const std::string& GetName() const;
 
 private:
     const std::string m_Name;

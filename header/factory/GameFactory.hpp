@@ -3,6 +3,7 @@
 #include <memory>
 
 #include "Game.hpp"
+#include "IPlayer.hpp"
 
 class GameFactory
 {

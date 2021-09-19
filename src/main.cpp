@@ -3,10 +3,8 @@
 
 #include "GameFactory.hpp"
 
-int main(int, char**) {
-
-    std::cout << "Hello, world!\n";
-
+int main(int, char**) 
+{
     GameFactory gameFactory;
     auto game = gameFactory.GetGame();
     game.StartGame();

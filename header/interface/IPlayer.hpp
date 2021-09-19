@@ -5,5 +5,5 @@
 class IPlayer
 {
 public:
-    virtual std::string GetName() = 0;
+    const virtual std::string& GetName() const = 0;
 };
