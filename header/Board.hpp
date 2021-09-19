@@ -13,8 +13,7 @@ public:
     Board(const size_t& size);
     ~Board() = default;
     void Draw();
-    const size_t& GetSize() const;
 private:
-    size_t m_Size;
+    const size_t m_Size;
     std::vector<std::vector<std::shared_ptr<ICell>>> m_Cells; // row and columun of cells
 };
