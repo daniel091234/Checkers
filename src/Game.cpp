@@ -3,7 +3,12 @@
 #include "Game.hpp"
 #include "Player.hpp"
 
-Game::Game(const std::vector<std::shared_ptr<IPlayer>>& players) : m_Players(players)
+Game::Game(const std::vector<std::shared_ptr<IPlayer>>& players,
+           const std::shared_ptr<IBoard>& board,
+           const std::vector<std::shared_ptr<IPiece>>& pieces)
+    : m_Players(players),
+      m_Board(board),
+      m_Pieces(pieces)
 {
     for (auto player : m_Players)
     {

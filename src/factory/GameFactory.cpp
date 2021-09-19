@@ -3,10 +3,12 @@
 
 #include "GameFactory.hpp"
 #include "Player.hpp"
+#include "Board.hpp"
+#include "Piece.hpp"
 
 Game GameFactory::GetGame()
 {
-    return Game(GetPlayers());
+    return Game(GetPlayers(), GetBoard(), GetPieces());
 }
 
 std::vector<std::shared_ptr<IPlayer>> GameFactory::GetPlayers()
@@ -22,3 +24,15 @@ std::vector<std::shared_ptr<IPlayer>> GameFactory::GetPlayers()
     return players;
 }
 
+std::shared_ptr<IBoard> GameFactory::GetBoard()
+{
+    return std::make_shared<Board>();
+}
+
+std::vector<std::shared_ptr<IPiece>> GameFactory::GetPieces()
+{
+    std::vector<std::shared_ptr<IPiece>> pieces;
+    pieces.push_back(std::make_shared<Piece>());
+
+    return pieces;
+}

@@ -12,5 +12,9 @@ public:
     ~GameFactory() = default;
 
     Game GetGame();
+
+private:
     std::vector<std::shared_ptr<IPlayer>> GetPlayers();
+    std::shared_ptr<IBoard> GetBoard();
+    std::vector<std::shared_ptr<IPiece>> GetPieces();
 };
