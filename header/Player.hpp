@@ -5,6 +5,6 @@
 class Player : public IPlayer
 {
 public:
-    Player(/* args */);
-    ~Player();
+    Player() = default;
+    ~Player() = default;
 };

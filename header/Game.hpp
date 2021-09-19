@@ -1,10 +1,18 @@
 #pragma once
 
-class Game
+#include <vector>
+
+#include "IGame.hpp"
+#include "IPlayer.hpp"
+
+class Game : public IGame
 {
-private:
-    /* data */
 public:
-    Game(/* args */);
-    ~Game();
+    Game(const std::vector<IPlayer>&);
+    ~Game() = default;
+    void StartGame();
+    void EndGame();
+
+private:
+    std::vector<IPlayer> m_Players;
 };

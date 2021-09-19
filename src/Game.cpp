@@ -2,12 +2,17 @@
 
 #include "Game.hpp"
 
-Game::Game(/* args */)
+Game::Game(const std::vector<IPlayer>& players) : m_Players(players)
+{
+}
+
+
+void Game::StartGame()
 {
     std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
-Game::~Game()
+void Game::EndGame()
 {
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+
 }
