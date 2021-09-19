@@ -20,6 +20,7 @@ Game::Game(const std::vector<std::shared_ptr<IPlayer>>& players,
 void Game::StartGame()
 {
     std::cout << __PRETTY_FUNCTION__ << std::endl;
+    m_Board->Draw();
 }
 
 void Game::EndGame()
