@@ -21,9 +21,19 @@ Board::Board(const size_t& size) : m_Size(size)
 
 void Board::Draw()
 {
-    std::cout << "   A   B   C   D   E   F   G   H   " <<std::endl;
-    std::cout << " ┌───┬───┬───┬───┬───┬───┬───┬───┐ " <<std::endl;
+    DrawBoardTopCorners();
+    DrawBoardCells();
+    DrawBoardBottomCorners();
+}
 
+const void Board::DrawBoardTopCorners() const
+{
+    DrawBoardLetterLabel();
+    DrawBoardCorners(" ┌──", "─┬──", "─┐ ");
+}
+
+const void Board::DrawBoardCells() const
+{
     int numberLabel = m_Size;
 
     for (const auto rows : m_Cells)
@@ -31,14 +41,50 @@ void Board::Draw()
         std::cout << numberLabel << "│";
         for (const auto cell : rows)
         {
-            std::cout << cell->GetValue() << "│";
+            std::cout << " " << cell->GetValue() << " │";
         }
         std::cout << numberLabel-- << std::endl;
-        if (numberLabel > 0)
-        {
-            std::cout << " ├───┼───┼───┼───┼───┼───┼───┼───┤ " <<std::endl;
-        }
+        DrawBoardMiddleCorners(numberLabel);
     }
-    std::cout << " └───┴───┴───┴───┴───┴───┴───┴───┘ " <<std::endl;
-    std::cout << "   A   B   C   D   E   F   G   H   " <<std::endl;
 }
+
+
+const void Board::DrawBoardBottomCorners() const
+{
+    DrawBoardCorners(" └──", "─┴──", "─┘ ");
+    DrawBoardLetterLabel();
+}
+
+const void Board::DrawBoardMiddleCorners(const uint8_t& numberLabel) const
+{
+    if (numberLabel <= 0)
+    {
+        return;
+    }
+    DrawBoardCorners(" ├──", "─┼──", "─┤ ");
+}
+
+const void Board::DrawBoardCorners(const std::string& leftPiece,
+                                   const std::string& middlePiece,
+                                   const std::string& rightPiece) const
+{
+    std::cout << leftPiece;
+    for (int x = 0; x < m_Size - 1; x++)
+    {
+        std::cout << middlePiece;
+    }
+    std::cout << rightPiece <<std::endl;
+}
+
+const void Board::DrawBoardLetterLabel() const
+{
+    std::cout << "  ";
+    for (int x = 0; x < m_Size; x++)
+    {
+        const char label = 'A' + x;
+        std::cout << " " << label << "  ";
+    }
+    std::cout << " " <<std::endl;
+}
+
+

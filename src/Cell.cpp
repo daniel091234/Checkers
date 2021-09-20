@@ -2,5 +2,5 @@
 
 const std::string Cell::GetValue() const
 {
-    return "   ";
+    return "A";
 }
