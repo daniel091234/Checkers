@@ -2,10 +2,11 @@
 
 #include <memory>
 
+#include "IGameFactory.hpp"
 #include "Game.hpp"
 #include "IPlayer.hpp"
 
-class GameFactory
+class GameFactory : IGameFactory
 {
 public:
     GameFactory() = default;
