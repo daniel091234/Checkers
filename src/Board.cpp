@@ -2,6 +2,7 @@
 
 #include "Board.hpp"
 #include "Cell.hpp"
+#include "BoardRowBuilder.hpp"
 
 Board::Board(const size_t& size) : m_Size(size)
 {
@@ -17,19 +18,14 @@ Board::Board(const size_t& size) : m_Size(size)
         }
         m_Cells.push_back(row);
     }
+    m_BoardRowBuilder = std::make_shared<BoardRowBuilder>(m_Size);
 }
 
 void Board::Draw()
 {
-    DrawBoardTopCorners();
+    std::cout << m_BoardRowBuilder->GetTopSide();
     DrawBoardCells();
-    DrawBoardBottomCorners();
-}
-
-const void Board::DrawBoardTopCorners() const
-{
-    DrawBoardLetterLabel();
-    DrawBoardCorners(" ┌──", "─┬──", "─┐ ");
+    std::cout << m_BoardRowBuilder->GetBottomSide();
 }
 
 const void Board::DrawBoardCells() const
@@ -41,54 +37,7 @@ const void Board::DrawBoardCells() const
         // Removed the label from the left for now
         // To re add number label and account for the digit space
         // Will use to_string(m_Size).size();
-        
-        std::cout << " │";
-        for (const auto cell : rows)
-        {
-            std::cout << " " << cell->GetValue() << " │";
-        }
-        std::cout << " " << numberLabel-- << std::endl;
-        DrawBoardMiddleCorners(numberLabel);
+        std::cout << m_BoardRowBuilder->GetMiddleSide(rows, numberLabel);
+        numberLabel--;        
     }
 }
-
-
-const void Board::DrawBoardBottomCorners() const
-{
-    DrawBoardCorners(" └──", "─┴──", "─┘ ");
-    DrawBoardLetterLabel();
-}
-
-const void Board::DrawBoardMiddleCorners(const uint8_t& numberLabel) const
-{
-    if (numberLabel <= 0)
-    {
-        return;
-    }
-    DrawBoardCorners(" ├──", "─┼──", "─┤ ");
-}
-
-const void Board::DrawBoardCorners(const std::string& leftPiece,
-                                   const std::string& middlePiece,
-                                   const std::string& rightPiece) const
-{
-    std::cout << leftPiece;
-    for (int x = 0; x < m_Size - 1; x++)
-    {
-        std::cout << middlePiece;
-    }
-    std::cout << rightPiece <<std::endl;
-}
-
-const void Board::DrawBoardLetterLabel() const
-{
-    std::cout << "  ";
-    for (int x = 0; x < m_Size; x++)
-    {
-        const char label = 'A' + x;
-        std::cout << " " << label << "  ";
-    }
-    std::cout << " " <<std::endl;
-}
-
-
