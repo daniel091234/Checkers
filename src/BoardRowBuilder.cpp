@@ -19,18 +19,22 @@ std::string BoardRowBuilder::GetBottomSide()
 std::string BoardRowBuilder::GetMiddleSide(const std::vector<std::shared_ptr<ICell>>& rows,
                                            const uint8_t numberLabel)
 {
+    // Removed the label from the left for now
+    // To re add number label and account for the digit space
+    // Will use to_string(m_Size).size();
     std::stringstream ss;
     ss << " │";
     for (const auto cell : rows)
     {
         ss << " " << cell->GetValue() << " │";
     }
-    ss << numberLabel << std::endl;
+    ss << " " << std::to_string(numberLabel) << std::endl;
 
-    if (numberLabel > 0)
+    if (numberLabel > 1)
     {
         ss << GetSide(" ├──", "─┼──", "─┤ ");
     }
+
     return ss.str();
 }
 
@@ -63,9 +67,4 @@ std::string BoardRowBuilder::GetLabel() const
     ss << " " << std::endl;
 
     return ss.str();
-}
-
-std::string BoardRowBuilder::GetMiddleFiller() const
-{
-    return GetSide(" ├──", "─┼──", "─┤ ");
 }

@@ -18,6 +18,5 @@ private:
                         const std::string& middlePiece,
                         const std::string& rightPiece) const;
     std::string GetLabel() const;
-    std::string GetMiddleFiller() const;
     size_t m_Size;
 };

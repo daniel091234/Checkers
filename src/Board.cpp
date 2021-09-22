@@ -34,9 +34,6 @@ const void Board::DrawBoardCells() const
 
     for (const auto rows : m_Cells)
     {
-        // Removed the label from the left for now
-        // To re add number label and account for the digit space
-        // Will use to_string(m_Size).size();
         std::cout << m_BoardRowBuilder->GetMiddleSide(rows, numberLabel);
         numberLabel--;        
     }
