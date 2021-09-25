@@ -6,8 +6,11 @@
 #include "Board.hpp"
 #include "Piece.hpp"
 
-constexpr size_t BOARD_SIZE = 8u;
-constexpr size_t NUM_OF_PLAYERS = 2u;
+namespace 
+{
+    constexpr size_t BOARD_SIZE = 8u;
+    constexpr size_t NUM_OF_PLAYERS = 2u;
+}
 
 Game GameFactory::GetGame()
 {

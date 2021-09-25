@@ -14,9 +14,8 @@ public:
     std::string GetMiddleSide(const std::vector<std::shared_ptr<ICell>>&,
                               const uint8_t);
 private:
-    std::string GetSide(const std::string& leftPiece,
-                        const std::string& middlePiece,
-                        const std::string& rightPiece) const;
-    std::string GetLabel() const;
+    std::string GetSide(const std::string[3]) const;
+    std::string GetLetterLabel() const;
+    size_t GetNumLabelNoDigits() const;
     size_t m_Size;
 };

@@ -1,0 +1,4 @@
+-Add BoardFactory class
+-Setup GTest
+-Add Unit Test
+-Add Coverage Tool
