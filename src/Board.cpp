@@ -32,9 +32,20 @@ const void Board::DrawBoardCells() const
 {
     int numberLabel = m_Size;
 
-    for (const auto rows : m_Cells)
+    for (const auto row : m_Cells)
     {
-        std::cout << m_BoardRowBuilder->GetMiddleSide(rows, numberLabel);
+        const auto& values = GetRowValues(row);
+        std::cout << m_BoardRowBuilder->GetMiddleSide(values, numberLabel);
         numberLabel--;        
     }
+}
+
+std::string Board::GetRowValues(const std::vector<std::shared_ptr<ICell>>& row) const
+{
+    std::string rowValues;
+    for (const auto& cell : row)
+    {
+        rowValues.append(cell->GetValue());
+    }
+    return rowValues;
 }

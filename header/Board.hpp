@@ -17,6 +17,7 @@ public:
 private:
     const void DrawBoardMiddleCorners(const uint8_t&) const;
     const void DrawBoardCells() const;
+    std::string GetRowValues(const std::vector<std::shared_ptr<ICell>>&) const;
 
     const size_t m_Size;
     std::vector<std::vector<std::shared_ptr<ICell>>> m_Cells; // row and columun of cells
